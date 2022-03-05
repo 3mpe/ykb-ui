@@ -24,8 +24,12 @@ function ListPage() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const onClickUpdate = () => {}
-    const onClickDelete = () => {}
+    const onClickUpdate = (item) => {
+        console.log("update", item);
+    }
+    const onClickDelete = (item) => {
+        console.log("delete", item);
+    }
 
     const headers = ["Ad", "Email", "Medeni Durum", "Departman", "Güncelleme", "Sil"];
     return (

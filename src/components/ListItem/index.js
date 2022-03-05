@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button";
 import {findDepartment, findMaritalStatus} from "../../helpers/utils";
 import {useDepartment} from "../../contextApi";
 
@@ -13,10 +14,10 @@ function ListItem(props) {
             <td>{findMaritalStatus(item.maritalStatus)}</td>
             <td>{findDepartment(state.departments, item.departmentId)}</td>
             <td>
-                <button onClick={onClickUpdate}>Güncelle</button>
+                <Button onClick={() => { onClickUpdate(item) }}>Güncelle</Button>
             </td>
             <td>
-                <button onClick={onClickDelete}>Sil</button>
+                <Button onClick={() => { onClickDelete(item) }}>Sil</Button>
             </td>
         </tr>
     );
