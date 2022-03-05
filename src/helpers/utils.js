@@ -1,10 +1,11 @@
+import MartialStatus from "../model/martialStatus";
+
 export function classNames(classes) {
     return Object.entries(classes)
         .filter(([key, value]) => value)
         .map(([key, value]) => key)
         .join(' ');
 }
-
 
 
 export function findDepartment (departments, id) {
@@ -15,8 +16,8 @@ export function findDepartment (departments, id) {
 
 export function findMaritalStatus (status) {
     const maritalStatus = {
-        [true]: "Evli",
-        [false]: "Bekar"
+        [true]: MartialStatus.MARRIED,
+        [false]: MartialStatus.SINGLE
     };
 
     return maritalStatus[status];
