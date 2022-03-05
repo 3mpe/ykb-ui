@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import EmployeService from "../../Services/EmployeService";
 import DepartmentService from "../../Services/DepartmentService";
 
+import { findDepartment, findMaritalStatus } from "../../helpers/utils";
+
 function ListPage() {
     console.log("ListPage");
     const [data, setData] = useState(null);
@@ -19,20 +21,7 @@ function ListPage() {
         })();
     }, []);
 
-    const findDepartment = (id) => {
-        const department = departments.find(department => department.id === id);
-        return department ? department.title : "Kayıtlı değil";
-    }
 
-
-    const findMaritalStatus = (status) => {
-        const maritalStatus = {
-            [true]: "Evli",
-            [false]: "Bekar"
-        };
-
-        return maritalStatus[status];
-    }
 
 
     return (
@@ -54,7 +43,7 @@ function ListPage() {
                                 <td>{employe.fullname}</td>
                                 <td>{employe.email}</td>
                                 <td>{ findMaritalStatus(employe.maritalStatus) }</td>
-                                <td>{ findDepartment(employe.departmentId) }</td>
+                                <td>{ findDepartment(departments, employe.departmentId) }</td>
                                 <td>
                                     <button>Güncelle</button>
                                 </td>
