@@ -16,7 +16,7 @@ function App() {
                 <Header />
                 <BrowserRouter>
                     <Routes>
-                        <Route path={RouteNames.list} render={(props) => <ListPage {...props} />}/>
+                        <Route path={RouteNames.list} element={<ListPage/>} exact />
                     </Routes>
                 </BrowserRouter>
             </div>
