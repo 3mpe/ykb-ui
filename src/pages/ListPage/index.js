@@ -5,7 +5,6 @@ import DepartmentService from "../../Services/DepartmentService";
 import { findDepartment, findMaritalStatus } from "../../helpers/utils";
 
 function ListPage() {
-    console.log("ListPage");
     const [data, setData] = useState(null);
     const [departments, setDepartments] = useState(null);
 
@@ -26,7 +25,7 @@ function ListPage() {
 
     return (
         <header className="header">
-            <table>
+            <table border={2} cellPadding={10}>
                 <tbody>
                     <tr>
                         <th>Ad</th>
