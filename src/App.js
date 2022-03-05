@@ -1,34 +1,26 @@
-import React, {useEffect} from "react";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Header } from "./components";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import {ProvideCombinedContext} from "./contextApi/ProvideCombinedContext";
+import {Header} from "./components";
+
+import RouteNames from "./helpers/RouteNames";
 
 import "./App.css";
-import EmployeService from "./Services/EmployeService";
+import ListPage from "./pages/ListPage";
 
 function App() {
-
-    useEffect(() => {
-        (async () => {
-            const employs = await EmployeService.getEmployees();
-            console.log(employs);
-        })();
-
-
-
-    }, []);
-
-
     return (
-        <div className="App">
-            {/*<Router>*/}
-                <Header/>
-                {/*<div>*/}
-                {/*    <Route path="/" render={(props) => null}/>*/}
-                {/*    <Route path="/create" element={(props) => null}/>*/}
-                {/*    <Route path="*" element={null}/>*/}
-                {/*</div>*/}
-            {/*</Router>*/}
-        </div>
+        <ProvideCombinedContext>
+            <div className="App">
+                <Header />
+                <BrowserRouter>
+                    <Routes>
+                        <Route path={RouteNames.list} render={(props) => <ListPage {...props} />}/>
+                    </Routes>
+                </BrowserRouter>
+            </div>
+        </ProvideCombinedContext>
     );
 }
 
