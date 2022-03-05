@@ -10,6 +10,7 @@ function ListPage() {
     const [data, setData] = useState(null);
     const { dispatch } = useDepartment();
 
+
     useEffect(() => {
         ;(async () => {
             // set all Departments
@@ -21,6 +22,7 @@ function ListPage() {
             setData(employs);
         })();
     }, []);
+
 
     const headers = ["Ad", "Email", "Medeni Durum", "Departman", "Güncelleme", "Sil"];
     return (

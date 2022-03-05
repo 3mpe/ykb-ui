@@ -1,11 +1,12 @@
-import * as React from 'react'
+import React, {useReducer} from 'react'
 import {initialState} from "./state";
 import { ConstDepartment} from "./constans";
 
 
+
 const AuthStateContext = React.createContext(null)
 
-function departmentReducer(state, action) {
+function departmentReducer(state = initialState, action) {
     switch (action.type) {
         case ConstDepartment.SET_DEPARTMENT: {
             return {
@@ -21,7 +22,7 @@ function departmentReducer(state, action) {
 function DepartmentProvider({ children }) {
     const initialValue = {};
     // noinspection JSCheckFunctionSignatures
-    const [state, dispatch] = React.useReducer(departmentReducer, initialValue)
+    const [state, dispatch] = useReducer(departmentReducer, initialValue)
     const value = { state, dispatch };
 
     return (
