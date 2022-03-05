@@ -21,6 +21,7 @@ function ListPage() {
             const employs = await EmployeService.getEmployees();
             setData(employs);
         })();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const onClickUpdate = () => {}
