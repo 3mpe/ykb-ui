@@ -23,11 +23,18 @@ function ListPage() {
         })();
     }, []);
 
+    const onClickUpdate = () => {}
+    const onClickDelete = () => {}
 
     const headers = ["Ad", "Email", "Medeni Durum", "Departman", "Güncelleme", "Sil"];
     return (
         <header className="header">
-            <List headers={headers} data={data} />
+            <List
+                headers={headers}
+                data={data}
+                onClickUpdate={onClickUpdate}
+                onClickDelete={onClickDelete}
+            />
         </header>
     );
 }
