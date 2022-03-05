@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { DepartmentProvider } from './DepartmentContext';
 
 export function ProvideCombinedContext({ children }) {
     return(
-        <div>
+        <DepartmentProvider>
             {children}
-        </div>
+        </DepartmentProvider>
     )
 }
