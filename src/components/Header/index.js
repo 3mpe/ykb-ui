@@ -2,13 +2,18 @@ import React from "react";
 import Button from "../Button";
 
 function Header(props) {
-    const { onClickAddEmployee } = props;
+    const {title, onClickAddEmployee} = props;
     return (
         <header className="header">
-            <h3>UI Development Challenge</h3>
-            <Button onClick={onClickAddEmployee}>
-                New Employee
-            </Button>
+            <h3>{title}</h3>
+            {
+                onClickAddEmployee && (
+                    <Button onClick={onClickAddEmployee}>
+                        New Employee
+                    </Button>
+                )
+            }
+
         </header>
     );
 }

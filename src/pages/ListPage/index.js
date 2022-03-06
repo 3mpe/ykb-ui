@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import EmployeeService from "../../Services/EmployeeService";
 import DepartmentService from "../../Services/DepartmentService";
 
-import List from "./../../components/List";
 import {useDepartment} from "../../contextApi";
 import {ConstDepartment} from "../../contextApi/DepartmentContext/constans";
 
 import RouteNames from "../../helpers/RouteNames";
-import {Header} from "../../components";
+
+import {Header, List} from "../../components";
 
 function ListPage() {
     const [data, setData] = useState(null);
@@ -32,7 +32,6 @@ function ListPage() {
     }, []);
 
     const addEmployee = () => {
-        console.log("addEmployee");
         navigate(RouteNames.addEmployee);
     };
 
@@ -46,7 +45,7 @@ function ListPage() {
     const headers = ["Ad", "Email", "Medeni Durum", "Departman", "Güncelleme", "Sil"];
     return (
         <div>
-            <Header title="Personel Listesi" onClickAddEmployee={addEmployee} />
+            <Header title="UI Development Challenge" onClickAddEmployee={addEmployee} />
             <br/>
             <List
                 headers={headers}
