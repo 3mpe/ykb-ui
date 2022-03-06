@@ -19,46 +19,25 @@
   ],
   "employees": [
     {
-      "fullname": "Nevin Kavak",
-      "email": "nevin.kavak@yapikredi.com.tr",
-      "maritalStatus": true,
+      "fullname": "Test 1",
+      "email": "Test1@test.com",
+      "maritalStatus": false,
       "departmentId": 1,
+      "id": 2
+    },
+    {
+      "fullname": "Test 2",
+      "email": "Test2@Test2",
+      "maritalStatus": false,
+      "departmentId": 2,
       "id": 3
     },
     {
-      "id": 4,
-      "fullname": "Gözde Yücel",
-      "email": "gozde.yucel@yapikredi.com.tr",
-      "maritalStatus": true,
-      "departmentId": 3
-    },
-    {
-      "id": 5,
-      "fullname": "Alpay Durmaz",
-      "email": "alpay.durmaz@yapikredi.com.tr",
-      "maritalStatus": true,
-      "departmentId": 1
-    },
-    {
-      "fullname": "Alpay Durmaz",
-      "email": "alpay.durmaz@yapikredi.com.tr",
-      "maritalStatus": true,
-      "departmentId": 1,
-      "id": 6
-    },
-    {
-      "fullname": "Emre VATANSEVER",
-      "email": "vatanseveremre90@gmail.com",
+      "fullname": "Test3",
+      "email": "Test3@Test3.com",
       "maritalStatus": false,
-      "departmentId": 1,
-      "id": 7
-    },
-    {
-      "fullname": "Emre VATANSEVER",
-      "email": "vatanseveremre90@gmail.com",
-      "maritalStatus": false,
-      "departmentId": 1,
-      "id": 8
+      "departmentId": 3,
+      "id": 4
     }
   ]
 }
