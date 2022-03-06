@@ -30,13 +30,9 @@ function AddEmployeePage() {
             maritalStatus: data.maritalStatus === "true"
         }
         EmployeeService.createEmployee(preparedData)
-            .then(res => {
-                console.log("res", res);
+            .then(() => {
                 navigate("/");
-            })
-            .catch(err => {
-                console.log("err", err);
-            })
+            });
     }
 
     const setState = (e) => {
