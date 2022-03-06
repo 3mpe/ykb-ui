@@ -1,14 +1,21 @@
 import React, {useEffect, useState} from "react";
-import EmployeService from "../../Services/EmployeService";
+import { useNavigate } from "react-router-dom";
+
+
+import EmployeeService from "../../Services/EmployeeService";
 import DepartmentService from "../../Services/DepartmentService";
 
 import List from "./../../components/List";
 import {useDepartment} from "../../contextApi";
 import {ConstDepartment} from "../../contextApi/DepartmentContext/constans";
 
+import RouteNames from "../../helpers/RouteNames";
+import {Header} from "../../components";
+
 function ListPage() {
     const [data, setData] = useState(null);
     const { dispatch } = useDepartment();
+    let navigate = useNavigate();
 
 
     useEffect(() => {
@@ -18,11 +25,16 @@ function ListPage() {
             dispatch({ type: ConstDepartment.SET_DEPARTMENT, payload: { departments } });
 
             // set all Employes
-            const employs = await EmployeService.getEmployees();
+            const employs = await EmployeeService.getEmployees();
             setData(employs);
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const addEmployee = () => {
+        console.log("addEmployee");
+        navigate(RouteNames.addEmployee);
+    };
 
     const onClickUpdate = (item) => {
         console.log("update", item);
@@ -33,14 +45,16 @@ function ListPage() {
 
     const headers = ["Ad", "Email", "Medeni Durum", "Departman", "Güncelleme", "Sil"];
     return (
-        <header className="header">
+        <div>
+            <Header title="Personel Listesi" onClickAddEmployee={addEmployee} />
+            <br/>
             <List
                 headers={headers}
                 data={data}
                 onClickUpdate={onClickUpdate}
                 onClickDelete={onClickDelete}
             />
-        </header>
+        </div>
     );
 }
 

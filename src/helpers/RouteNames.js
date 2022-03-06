@@ -1,6 +1,6 @@
 const RouteNames = {
     list: '/',
-    create: '/create',
+    addEmployee: '/addEmployee',
 };
 
 export default RouteNames;

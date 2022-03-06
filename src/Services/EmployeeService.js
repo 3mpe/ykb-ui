@@ -1,6 +1,6 @@
 import Api from "./Api";
 
-class EmployeService {
+class EmployeeService {
 
 
     getEmployees() {
@@ -24,4 +24,4 @@ class EmployeService {
     }
 }
 
-export default new EmployeService();
+export default new EmployeeService();
