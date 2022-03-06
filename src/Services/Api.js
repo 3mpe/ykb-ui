@@ -41,7 +41,12 @@ class Api {
                 reject({ status: xhr.status,  statusText: xhr.statusText });
             };
 
-            xhr.send(JSON.stringify(params));
+            if (params) {
+                xhr.send(JSON.stringify(params));
+            }
+            else {
+                xhr.send();
+            }
         });
     }
 

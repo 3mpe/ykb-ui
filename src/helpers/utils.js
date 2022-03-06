@@ -9,8 +9,6 @@ export function classNames(classes) {
 
 
 export function findDepartment (departments, id) {
-
-    console.log(departments, id);
     const department = departments.find(department => department.id === id);
     return department ? department.title : "Kayıtlı değil";
 }

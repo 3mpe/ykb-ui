@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 import EmployeeService from "../../Services/EmployeeService";
@@ -14,7 +14,7 @@ import {Header, List} from "../../components";
 
 function ListPage() {
     const [data, setData] = useState(null);
-    const { dispatch } = useDepartment();
+    const {dispatch} = useDepartment();
     let navigate = useNavigate();
 
 
@@ -22,7 +22,7 @@ function ListPage() {
         ;(async () => {
             // set all Departments
             const departments = await DepartmentService.getDepartment();
-            dispatch({ type: ConstDepartment.SET_DEPARTMENT, payload: { departments } });
+            dispatch({type: ConstDepartment.SET_DEPARTMENT, payload: {departments}});
 
             // set all Employes
             const employs = await EmployeeService.getEmployees();
@@ -39,13 +39,16 @@ function ListPage() {
         console.log("update", item);
     }
     const onClickDelete = (item) => {
-        console.log("delete", item);
+        EmployeeService.deleteEmployee(item.id)
+            .then(() => {
+                setData(data.filter(i => i.id !== item.id));
+            });
     }
 
     const headers = ["Ad", "Email", "Medeni Durum", "Departman", "Güncelleme", "Sil"];
     return (
         <div>
-            <Header title="UI Development Challenge" onClickAddEmployee={addEmployee} />
+            <Header title="UI Development Challenge" onClickAddEmployee={addEmployee}/>
             <br/>
             <List
                 headers={headers}
