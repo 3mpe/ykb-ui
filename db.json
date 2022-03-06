@@ -19,11 +19,11 @@
   ],
   "employees": [
     {
-      "id": 3,
       "fullname": "Nevin Kavak",
       "email": "nevin.kavak@yapikredi.com.tr",
-      "maritalStatus": false,
-      "departmentId": 3
+      "maritalStatus": true,
+      "departmentId": 1,
+      "id": 3
     },
     {
       "id": 4,
@@ -52,6 +52,13 @@
       "maritalStatus": false,
       "departmentId": 1,
       "id": 7
+    },
+    {
+      "fullname": "Emre VATANSEVER",
+      "email": "vatanseveremre90@gmail.com",
+      "maritalStatus": false,
+      "departmentId": 1,
+      "id": 8
     }
   ]
 }

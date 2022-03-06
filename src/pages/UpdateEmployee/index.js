@@ -32,7 +32,7 @@ function AddEmployeePage() {
             maritalStatus: data.maritalStatus === "true"
         }
         EmployeeService
-            .createEmployee(preparedData)
+            .updateEmployee(state.id, preparedData)
             .then(() => {
                 navigate("/");
             });
@@ -99,9 +99,7 @@ function AddEmployeePage() {
 
 
                 <div className="buttons">
-                    <Button type="button" onClick={() => {
-                        navigate(-1);
-                    }}>Vazgeç</Button>
+                    <Button type="button" onClick={() => { navigate(-1); }}>Vazgeç</Button>
                     <Button type="submit">Gönder</Button>
                 </div>
             </form>

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import RouteNames from "./helpers/RouteNames";
 
 import {ProvideCombinedContext} from "./contextApi/ProvideCombinedContext";
@@ -18,6 +18,11 @@ function App() {
                         <Route path={RouteNames.list} element={<ListPage />} exact />
                         <Route path={RouteNames.addEmployee} element={<AddEmployee />}  />
                         <Route path={RouteNames.editEmployee} element={<UpdateEmployee />}  />
+
+                        <Route
+                            path="*"
+                            element={<Navigate to={RouteNames.list} replace />}
+                        />
                     </Routes>
                 </BrowserRouter>
             </div>
