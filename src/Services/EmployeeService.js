@@ -11,15 +11,15 @@ class EmployeeService {
         return Api.get(`/employees/${id}`);
     }
 
-    createEmploye(data) {
+    createEmployee(data) {
         return Api.post("/employees", data);
     }
 
-    updateEmploye(id, data) {
+    updateEmployee(id, data) {
         return Api.put(`/employees/${id}`, data);
     }
 
-    deleteEmploye(id) {
+    deleteEmployee(id) {
         return Api.delete(`/employees/${id}`);
     }
 }

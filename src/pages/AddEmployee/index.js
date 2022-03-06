@@ -6,23 +6,37 @@ import {useNavigate} from "react-router-dom";
 import DepartmentService from "../../Services/DepartmentService";
 import {ConstDepartment} from "../../contextApi/DepartmentContext/constans";
 import {useDepartment} from "../../contextApi";
+import EmployeeService from "../../Services/EmployeeService";
 
 
 function AddEmployeePage() {
     const navigate = useNavigate();
     const initialData = {
-        name: "",
+        fullname: "",
         email: "",
-        martialStatus: "true",
-        departments: "",
+        maritalStatus: "false",
+        departmentId: "",
     }
     const [data, setData] = useState(initialData);
     const [departments, setDepartments] = useState([]);
-    const { dispatch } = useDepartment();
+    const {dispatch} = useDepartment();
 
     const onsubmit = (e) => {
         e.preventDefault();
-        console.log("Clicked", data);
+
+        const preparedData = {
+            ...data,
+            departmentId: Number(data.departmentId),
+            maritalStatus: data.maritalStatus === "true"
+        }
+        EmployeeService.createEmployee(preparedData)
+            .then(res => {
+                console.log("res", res);
+                navigate("/");
+            })
+            .catch(err => {
+                console.log("err", err);
+            })
     }
 
     const setState = (e) => {
@@ -37,10 +51,10 @@ function AddEmployeePage() {
         ;(async () => {
             // set all Departments
             const departments = await DepartmentService.getDepartment();
-            dispatch({ type: ConstDepartment.SET_DEPARTMENT, payload: { departments } });
+            dispatch({type: ConstDepartment.SET_DEPARTMENT, payload: {departments}});
             setDepartments(departments);
             if (departments.length > 0) {
-                setState({ target: { name: "departments",  value: departments[0].id.toString() } });
+                setState({target: {name: "departmentId", value: departments[0].id.toString()}});
             }
 
         })();
@@ -55,7 +69,7 @@ function AddEmployeePage() {
             <form className="create-form" onSubmit={onsubmit}>
                 <label>
                     <span>Ad</span>
-                    <input type="text" name="name" onChange={setState} required/>
+                    <input type="text" name="fullname" onChange={setState} required/>
                 </label>
 
                 <label>
@@ -65,15 +79,15 @@ function AddEmployeePage() {
 
                 <label>
                     <span>Medeni Durum</span>
-                    <select name="martialStatus" onChange={setState} required>
-                        <option value="true">Single</option>
-                        <option value="false">Married</option>
+                    <select name="maritalStatus" onChange={setState} required>
+                        <option value="false">Bekar</option>
+                        <option value="true">Evli</option>
                     </select>
                 </label>
 
                 <label>
                     <span>Departman</span>
-                    <select name="departments" onChange={setState} required>
+                    <select name="departmentId" onChange={setState} required>
                         {
                             departments.map((department) => {
                                 return (
@@ -85,9 +99,10 @@ function AddEmployeePage() {
                 </label>
 
 
-
                 <div className="buttons">
-                    <Button type="button" onClick={() => { navigate(-1); }}>Vazgeç</Button>
+                    <Button type="button" onClick={() => {
+                        navigate(-1);
+                    }}>Vazgeç</Button>
                     <Button type="submit">Gönder</Button>
                 </div>
             </form>

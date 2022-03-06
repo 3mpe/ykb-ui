@@ -40,7 +40,8 @@ class Api {
             xhr.onerror = () => {
                 reject({ status: xhr.status,  statusText: xhr.statusText });
             };
-            xhr.send(JSON.stringify(params = ""));
+
+            xhr.send(JSON.stringify(params));
         });
     }
 

@@ -1,4 +1,4 @@
-import MartialStatus from "../model/martialStatus";
+import MaritalStatus from "../model/maritalStatus";
 
 export function classNames(classes) {
     return Object.entries(classes)
@@ -9,6 +9,8 @@ export function classNames(classes) {
 
 
 export function findDepartment (departments, id) {
+
+    console.log(departments, id);
     const department = departments.find(department => department.id === id);
     return department ? department.title : "Kayıtlı değil";
 }
@@ -16,8 +18,8 @@ export function findDepartment (departments, id) {
 
 export function findMaritalStatus (status) {
     const maritalStatus = {
-        [true]: MartialStatus.MARRIED,
-        [false]: MartialStatus.SINGLE
+        [true]: MaritalStatus.MARRIED,
+        [false]: MaritalStatus.SINGLE
     };
 
     return maritalStatus[status];
