@@ -1,7 +1,8 @@
 import React from "react";
 import {render} from "@testing-library/react";
-import {shallow, configure} from 'enzyme';
+import {shallow} from 'enzyme';
 
+import {configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({adapter: new Adapter()});
 
@@ -9,12 +10,12 @@ configure({adapter: new Adapter()});
 import Button from "./index";
 
 describe("<Button />", () => {
-    it("should render the header", () => {
+    it("should render the button", () => {
         const {container} = render(<Button>Kaydet</Button>);
 
-        const selectedHeader = container.querySelectorAll('button');
-        const headerLength = selectedHeader.length;
-        expect(headerLength).toBe(1);
+        const selectedButton = container.querySelectorAll('button');
+        const buttonLength = selectedButton.length;
+        expect(buttonLength).toBe(1);
 
     });
 
