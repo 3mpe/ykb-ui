@@ -6,6 +6,7 @@ import {ProvideCombinedContext} from "./contextApi/ProvideCombinedContext";
 
 import ListPage from "./pages/ListPage";
 import AddEmployee from "./pages/AddEmployee";
+import UpdateEmployee from "./pages/UpdateEmployee";
 
 import "./App.css";
 function App() {
@@ -16,6 +17,7 @@ function App() {
                     <Routes>
                         <Route path={RouteNames.list} element={<ListPage />} exact />
                         <Route path={RouteNames.addEmployee} element={<AddEmployee />}  />
+                        <Route path={RouteNames.editEmployee} element={<UpdateEmployee />}  />
                     </Routes>
                 </BrowserRouter>
             </div>

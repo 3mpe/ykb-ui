@@ -37,6 +37,7 @@ function ListPage() {
 
     const onClickUpdate = (item) => {
         console.log("update", item);
+        navigate(RouteNames.editEmployee, { state: item });
     }
     const onClickDelete = (item) => {
         EmployeeService.deleteEmployee(item.id)
